@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assurance Roofing & Construction | DFW Storm Damage Experts</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0a1628;
+      --blue: #1a3a6b;
+      --accent: #e8b84b;
+      --light: #f8f9fc;
+      --text: #1a1a2e;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text); }
+
+    /* NAV */
+    nav {
+      background: var(--navy);
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { color: white; font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
+    .logo span { color: var(--accent); }
+    .nav-phone { color: var(--accent); font-weight: 700; font-size: 18px; text-decoration: none; }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--navy);
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 14px;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: white;
+      padding: 80px 40px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(232,184,75,0.08) 0%, transparent 70%);
+    }
+    .stars { color: var(--accent); font-size: 22px; margin-bottom: 12px; }
+    .rating-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(232,184,75,0.4);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p {
+      font-size: 18px;
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--navy);
+      padding: 16px 36px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 17px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.4);
+      padding: 16px 36px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 17px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--accent);
+      padding: 14px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item { font-weight: 800; color: var(--navy); font-size: 14px; }
+
+    /* SECTIONS */
+    section { padding: 70px 40px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label { color: var(--accent); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+    h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.15; margin-bottom: 16px; color: var(--navy); }
+    .subtitle { font-size: 17px; color: #555; line-height: 1.6; max-width: 600px; margin-bottom: 48px; }
+
+    /* WHY CHOOSE */
+    .why { background: var(--light); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 28px;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .card-icon { font-size: 32px; margin-bottom: 14px; }
+    .card h3 { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .card p { font-size: 14px; color: #666; line-height: 1.6; }
+
+    /* PROCESS */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-top: 48px; }
+    .step { text-align: center; }
+    .step-num {
+      width: 56px; height: 56px;
+      background: var(--navy);
+      color: var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 900;
+      margin: 0 auto 16px;
+    }
+    .step h3 { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .step p { font-size: 14px; color: #666; line-height: 1.5; }
+
+    /* INSPECTION */
+    .inspection { background: var(--navy); color: white; }
+    .inspection h2 { color: white; }
+    .inspection .subtitle { color: rgba(255,255,255,0.7); }
+    .inspection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .inspection-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .inspection-card h4 { color: var(--accent); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .inspection-card ul { list-style: none; }
+    .inspection-card li { font-size: 13px; color: rgba(255,255,255,0.8); padding: 4px 0; padding-left: 16px; position: relative; }
+    .inspection-card li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+    /* FORM */
+    .lead-form { background: var(--light); }
+    .form-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .form-box {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+    }
+    .form-box h3 { font-size: 22px; font-weight: 900; color: var(--navy); margin-bottom: 6px; }
+    .form-box p { font-size: 14px; color: #666; margin-bottom: 24px; }
+    .form-field { margin-bottom: 16px; }
+    .form-field label { display: block; font-size: 12px; font-weight: 700; color: #555; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-field input, .form-field select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-field input:focus, .form-field select:focus { border-color: var(--navy); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--navy);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    .form-info h3 { font-size: 28px; font-weight: 900; color: var(--navy); margin-bottom: 20px; }
+    .promise { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+    .promise-icon { font-size: 28px; flex-shrink: 0; }
+    .promise h4 { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+    .promise p { font-size: 13px; color: #666; line-height: 1.5; }
+
+    /* FOOTER */
+    footer { background: var(--navy); color: white; padding: 40px; text-align: center; }
+    footer .logo { font-size: 22px; margin-bottom: 12px; display: block; }
+    footer p { opacity: 0.6; font-size: 13px; margin-top: 8px; }
+    .footer-phone { font-size: 28px; font-weight: 900; color: var(--accent); margin: 12px 0; display: block; text-decoration: none; }
+    .service-areas { opacity: 0.6; font-size: 12px; margin-top: 20px; }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-cta { display: none; }
+      .hero { padding: 50px 20px 40px; }
+      section { padding: 50px 20px; }
+      .form-wrap { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .trust-bar { gap: 20px; padding: 12px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Assurance <span>Roofing</span></div>
+  <div style="display:flex;align-items:center">
+    <a href="tel:6824521687" class="nav-phone">📞 (682) 452-1687</a>
+    <a href="#inspection" class="nav-cta">Free Inspection</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="rating-badge">⭐⭐⭐⭐⭐ 4.9 Google Rating · DFW's Trusted Roofing Experts</div>
+    <h1>Your Roof. Your Insurance.<br><span>We Fight For Both.</span></h1>
+    <p>DFW's storm damage specialists. We document the damage, handle the insurance company, and install the roof — the right way.</p>
+    <div class="hero-btns">
+      <a href="tel:6824521687" class="btn-primary">📞 Call (682) 452-1687</a>
+      <a href="#inspection" class="btn-secondary">Get Free Inspection</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">✅ 100% Free Inspections</div>
+  <div class="trust-item">✅ Insurance Claim Experts</div>
+  <div class="trust-item">✅ No Money Out of Pocket*</div>
+  <div class="trust-item">✅ Licensed & Insured</div>
+  <div class="trust-item">✅ DFW Local Company</div>
+</div>
+
+<!-- WHY CHOOSE -->
+<section class="why">
+  <div class="container">
+    <div class="section-label">Why Assurance</div>
+    <h2>Honest Roofing.<br>Real Inspections. No Guesswork.</h2>
+    <p class="subtitle">We're not like other roofing companies. We tell you the truth, fight for your claim, and stand behind every job.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>Free Multi-Point Inspection</h3>
+        <p>No cost. No obligation. We inspect every component — not just shingles — and explain exactly what we find.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛡️</div>
+        <h3>Insurance Claim Advocates</h3>
+        <p>We go to bat with your insurance company, document every dollar of damage, and maximize your coverage.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Fast, Professional Install</h3>
+        <p>Most roofs completed in one day. Trained crews, quality materials, clean job site — every time.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📞</div>
+        <h3>Local Team You Can Reach</h3>
+        <p>We're based in DFW. We answer the phone and stand behind our work long after the job is done.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏠</div>
+        <h3>Shingles & Metal Roofing</h3>
+        <p>We install both asphalt shingle and metal roofing systems using top-rated manufacturers.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⭐</div>
+        <h3>4.9 Star Reputation</h3>
+        <p>Our reputation is on every roof we touch. Real reviews from real DFW homeowners.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="container">
+    <div class="section-label">How It Works</div>
+    <h2>Simple. Stress-Free. Done Right.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Free Inspection</h3>
+        <p>We inspect your roof thoroughly and document all damage — at no cost to you.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Insurance Filing</h3>
+        <p>We meet with your adjuster and fight to make sure every dollar of damage is covered.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Approval</h3>
+        <p>Once approved, you sign with us and we handle everything from there.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Install Day</h3>
+        <p>Our crew installs your new roof — usually in one day — and cleans up completely.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <h3>Final Inspection</h3>
+        <p>We walk through the job with you and make sure you're 100% satisfied before we leave.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSPECTION -->
+<section class="inspection">
+  <div class="container">
+    <div class="section-label" style="color:var(--accent)">Our Inspection</div>
+    <h2>The Assurance Multi-Point Inspection</h2>
+    <p class="subtitle">We check every critical component — not just the shingles. Most roofers miss what we find.</p>
+    <div class="inspection-grid">
+      <div class="inspection-card">
+        <h4>Structural</h4>
+        <ul>
+          <li>Roof Decking Condition</li>
+          <li>Attic Ventilation</li>
+          <li>Underlayment</li>
+          <li>Flashing Integrity</li>
+          <li>Chimney Condition</li>
+        </ul>
+      </div>
+      <div class="inspection-card">
+        <h4>Shingles & Exterior</h4>
+        <ul>
+          <li>Shingle Damage</li>
+          <li>Granule Loss</li>
+          <li>Moss & Algae</li>
+          <li>Nail Pops</li>
+          <li>Drip Edge Condition</li>
+        </ul>
+      </div>
+      <div class="inspection-card">
+        <h4>Gutters & Drainage</h4>
+        <ul>
+          <li>Gutter Condition</li>
+          <li>Downspouts & Flow</li>
+          <li>Soffit and Fascia</li>
+        </ul>
+      </div>
+      <div class="inspection-card">
+        <h4>Leaks & Safety</h4>
+        <ul>
+          <li>Interior Ceiling & Walls</li>
+          <li>Roof Penetrations</li>
+          <li>Storm Damage</li>
+          <li>Roof Lifespan Assessment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD FORM -->
+<section class="lead-form" id="inspection">
+  <div class="container">
+    <div class="form-wrap">
+      <div class="form-info">
+        <div class="section-label">Get Started</div>
+        <h3>Get Your Free Roof Inspection Today</h3>
+        <br>
+        <div class="promise">
+          <div class="promise-icon">🆓</div>
+          <div>
+            <h4>100% Free — No Obligation</h4>
+            <p>No cost, no pressure. We inspect, explain what we see, and you decide.</p>
+          </div>
+        </div>
+        <div class="promise">
+          <div class="promise-icon">⚡</div>
+          <div>
+            <h4>Fast Response</h4>
+            <p>We'll reach out within 24 hours to schedule your inspection at your convenience.</p>
+          </div>
+        </div>
+        <div class="promise">
+          <div class="promise-icon">🛡️</div>
+          <div>
+            <h4>Insurance Specialists</h4>
+            <p>If there's damage, we handle the insurance company for you from start to finish.</p>
+          </div>
+        </div>
+        <div class="promise">
+          <div class="promise-icon">📞</div>
+          <div>
+            <h4>Prefer to Call?</h4>
+            <p><strong>(682) 452-1687</strong> — We answer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-box">
+        <h3>Schedule Free Inspection</h3>
+        <p>Fill out the form and we'll be in touch within 24 hours.</p>
+        <div class="form-row">
+          <div class="form-field">
+            <label>First Name</label>
+            <input type="text" placeholder="John" />
+          </div>
+          <div class="form-field">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(214) 555-0100" />
+        </div>
+        <div class="form-field">
+          <label>Email Address</label>
+          <input type="email" placeholder="john@email.com" />
+        </div>
+        <div class="form-field">
+          <label>Property Address</label>
+          <input type="text" placeholder="1234 Oak Street, Dallas TX" />
+        </div>
+        <div class="form-field">
+          <label>Did you recently have a storm?</label>
+          <select>
+            <option>Yes — hail or wind damage</option>
+            <option>Not sure — want an inspection</option>
+            <option>No — looking for roof replacement</option>
+          </select>
+        </div>
+        <button class="submit-btn">Request Free Inspection →</button>
+        <p style="font-size:11px;color:#999;text-align:center;margin-top:12px">No spam. No pressure. We respect your privacy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="logo">Assurance <span style="color:var(--accent)">Roofing</span> & Construction</span>
+  <a href="tel:6824521687" class="footer-phone">(682) 452-1687</a>
+  <p>DFW Roof Replacement & Storm Damage Specialists</p>
+  <p class="service-areas">Proudly serving Dallas · Fort Worth · Plano · Garland · Irving · Arlington · Frisco · McKinney and surrounding DFW communities</p>
+  <p style="margin-top:20px;opacity:0.4;font-size:11px">© 2026 Assurance Roofing & Construction. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
