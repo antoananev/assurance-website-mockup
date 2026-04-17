@@ -4,510 +4,528 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Assurance Roofing & Construction | DFW Storm Damage Experts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy: #0a1628;
-      --blue: #1a3a6b;
-      --accent: #e8b84b;
-      --light: #f8f9fc;
-      --text: #1a1a2e;
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --dark:#0a0f1e;
+      --navy:#0d1b3e;
+      --blue:#1a3a7c;
+      --gold:#f0a500;
+      --gold-light:#ffd966;
+      --white:#ffffff;
+      --gray:#f4f6fb;
+      --text:#1a1a2e;
+      --muted:#6b7280;
     }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text); }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;color:var(--text);overflow-x:hidden}
 
-    /* NAV */
-    nav {
-      background: var(--navy);
-      padding: 16px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .logo { color: white; font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
-    .logo span { color: var(--accent); }
-    .nav-phone { color: var(--accent); font-weight: 700; font-size: 18px; text-decoration: none; }
-    .nav-cta {
-      background: var(--accent);
-      color: var(--navy);
-      padding: 10px 22px;
-      border-radius: 6px;
-      font-weight: 800;
-      font-size: 14px;
-      text-decoration: none;
-      margin-left: 20px;
-    }
+    /* ── NAVBAR ── */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;background:rgba(10,15,30,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06)}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo-mark{width:36px;height:36px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:var(--dark)}
+    .logo-text{color:#fff;font-size:17px;font-weight:800;letter-spacing:-0.3px}
+    .logo-text span{color:var(--gold)}
+    .nav-links{display:flex;align-items:center;gap:32px}
+    .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s}
+    .nav-links a:hover{color:#fff}
+    .nav-phone{color:var(--gold);font-weight:700;font-size:15px;text-decoration:none}
+    .nav-cta{background:var(--gold);color:var(--dark);padding:10px 22px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:background 0.2s}
+    .nav-cta:hover{background:var(--gold-light)}
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
-      color: white;
-      padding: 80px 40px 60px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(ellipse at center, rgba(232,184,75,0.08) 0%, transparent 70%);
-    }
-    .stars { color: var(--accent); font-size: 22px; margin-bottom: 12px; }
-    .rating-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(232,184,75,0.4);
-      padding: 8px 20px;
-      border-radius: 30px;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 28px;
-    }
-    .hero h1 {
-      font-size: clamp(32px, 5vw, 58px);
-      font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 20px;
-      letter-spacing: -1px;
-    }
-    .hero h1 span { color: var(--accent); }
-    .hero p {
-      font-size: 18px;
-      opacity: 0.85;
-      max-width: 600px;
-      margin: 0 auto 36px;
-      line-height: 1.6;
-    }
-    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--accent);
-      color: var(--navy);
-      padding: 16px 36px;
-      border-radius: 8px;
-      font-weight: 800;
-      font-size: 17px;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-secondary {
-      background: transparent;
-      color: white;
-      border: 2px solid rgba(255,255,255,0.4);
-      padding: 16px 36px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 17px;
-      text-decoration: none;
-      display: inline-block;
-    }
+    /* ── HERO ── */
+    .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--dark)}
+    .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1800&q=85') center/cover no-repeat;opacity:0.15}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,15,30,0.97) 0%,rgba(13,27,62,0.85) 60%,rgba(26,58,124,0.5) 100%)}
+    .hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:120px 5% 80px;width:100%}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,165,0,0.12);border:1px solid rgba(240,165,0,0.3);color:var(--gold);padding:8px 16px;border-radius:30px;font-size:13px;font-weight:600;margin-bottom:28px}
+    .hero h1{font-size:clamp(42px,6vw,76px);font-weight:900;line-height:1.05;letter-spacing:-2px;color:#fff;margin-bottom:24px;max-width:800px}
+    .hero h1 em{font-style:normal;color:var(--gold)}
+    .hero-sub{font-size:18px;color:rgba(255,255,255,0.7);line-height:1.7;max-width:540px;margin-bottom:44px}
+    .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:60px}
+    .btn-gold{background:var(--gold);color:var(--dark);padding:16px 36px;border-radius:10px;font-weight:800;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform 0.2s,background 0.2s}
+    .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.25);padding:16px 36px;border-radius:10px;font-weight:600;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color 0.2s}
+    .btn-outline:hover{border-color:rgba(255,255,255,0.6)}
+    .hero-proof{display:flex;gap:32px;flex-wrap:wrap}
+    .proof-item{display:flex;flex-direction:column}
+    .proof-num{font-size:32px;font-weight:900;color:#fff;line-height:1}
+    .proof-label{font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;font-weight:500}
 
-    /* TRUST BAR */
-    .trust-bar {
-      background: var(--accent);
-      padding: 14px 40px;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
+    /* ── TRUST BAR ── */
+    .trustbar{background:var(--gold);padding:16px 5%}
+    .trustbar-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+    .trust-item{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13px;color:var(--dark)}
+
+    /* ── SECTIONS ── */
+    section{padding:90px 5%}
+    .container{max-width:1200px;margin:0 auto}
+    .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--gold);margin-bottom:14px}
+    h2{font-size:clamp(32px,4vw,48px);font-weight:900;line-height:1.1;letter-spacing:-1px;color:var(--navy);margin-bottom:18px}
+    .lead{font-size:17px;color:var(--muted);line-height:1.7;max-width:560px}
+
+    /* ── SERVICES ── */
+    .services{background:var(--gray)}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:56px}
+    .service-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.06);transition:transform 0.3s,box-shadow 0.3s;cursor:pointer}
+    .service-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,0.12)}
+    .service-img{width:100%;height:200px;object-fit:cover}
+    .service-body{padding:24px}
+    .service-icon{font-size:28px;margin-bottom:12px}
+    .service-body h3{font-size:19px;font-weight:800;color:var(--navy);margin-bottom:8px}
+    .service-body p{font-size:14px;color:var(--muted);line-height:1.6}
+    .service-link{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:13px;font-weight:700;color:var(--gold);text-decoration:none}
+
+    /* ── WHY US ── */
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .why-img-wrap{position:relative}
+    .why-img{width:100%;border-radius:20px;object-fit:cover;height:520px}
+    .why-badge{position:absolute;bottom:-20px;right:-20px;background:var(--navy);color:#fff;padding:20px 24px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.2)}
+    .why-badge-num{font-size:36px;font-weight:900;color:var(--gold);line-height:1}
+    .why-badge-text{font-size:12px;color:rgba(255,255,255,0.7);margin-top:4px}
+    .why-points{display:flex;flex-direction:column;gap:20px;margin-top:40px}
+    .why-point{display:flex;gap:16px;align-items:flex-start}
+    .why-check{width:40px;height:40px;background:rgba(240,165,0,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .why-point h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+    .why-point p{font-size:13px;color:var(--muted);line-height:1.5}
+
+    /* ── PROCESS ── */
+    .process{background:var(--navy)}
+    .process h2{color:#fff}
+    .process .lead{color:rgba(255,255,255,0.6)}
+    .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:56px;position:relative}
+    .process-grid::before{content:'';position:absolute;top:36px;left:10%;right:10%;height:2px;background:rgba(240,165,0,0.2)}
+    .process-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px;position:relative}
+    .step-circle{width:72px;height:72px;border-radius:50%;background:rgba(240,165,0,0.1);border:2px solid rgba(240,165,0,0.3);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;position:relative;z-index:1}
+    .step-num-badge{position:absolute;top:-4px;right:-4px;width:22px;height:22px;background:var(--gold);border-radius:50%;font-size:11px;font-weight:800;color:var(--dark);display:flex;align-items:center;justify-content:center}
+    .process-step h3{font-size:14px;font-weight:700;color:#fff;margin-bottom:8px}
+    .process-step p{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.5}
+
+    /* ── INSPECTION ── */
+    .inspection-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px}
+    .insp-card{background:var(--gray);border-radius:14px;padding:24px;border-top:3px solid var(--gold)}
+    .insp-card h4{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--navy);margin-bottom:16px}
+    .insp-list{list-style:none}
+    .insp-list li{font-size:13px;color:var(--muted);padding:6px 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;gap:8px}
+    .insp-list li::before{content:'✓';color:var(--gold);font-weight:700;font-size:12px;flex-shrink:0}
+
+    /* ── GALLERY ── */
+    .gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:240px 240px;gap:12px;margin-top:56px}
+    .g1{grid-column:span 6;grid-row:span 2}
+    .g2{grid-column:span 3}
+    .g3{grid-column:span 3}
+    .g4{grid-column:span 3}
+    .g5{grid-column:span 3}
+    .gallery-item{border-radius:14px;overflow:hidden;position:relative}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+    .gallery-item:hover img{transform:scale(1.05)}
+    .gallery-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));padding:20px 16px 14px;color:#fff;font-size:13px;font-weight:600}
+
+    /* ── TESTIMONIALS ── */
+    .testimonials{background:var(--gray)}
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+    .testi-card{background:#fff;border-radius:16px;padding:28px;box-shadow:0 2px 16px rgba(0,0,0,0.06)}
+    .testi-stars{color:var(--gold);font-size:16px;margin-bottom:14px}
+    .testi-text{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px;font-style:italic}
+    .testi-author{display:flex;align-items:center;gap:12px}
+    .testi-avatar{width:44px;height:44px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:800;font-size:16px}
+    .testi-name{font-size:14px;font-weight:700;color:var(--navy)}
+    .testi-location{font-size:12px;color:var(--muted)}
+
+    /* ── LEAD FORM ── */
+    .lead-section{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);position:relative;overflow:hidden}
+    .lead-section::before{content:'';position:absolute;top:-50%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(240,165,0,0.08),transparent 70%)}
+    .lead-grid{display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center}
+    .lead-text h2{color:#fff}
+    .lead-text .lead{color:rgba(255,255,255,0.7)}
+    .lead-promises{display:flex;flex-direction:column;gap:16px;margin-top:36px}
+    .lead-promise{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:14px}
+    .lead-promise::before{content:'✓';background:var(--gold);color:var(--dark);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
+    .form-card{background:#fff;border-radius:20px;padding:36px;box-shadow:0 24px 64px rgba(0,0,0,0.3)}
+    .form-card h3{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:6px}
+    .form-card p{font-size:13px;color:var(--muted);margin-bottom:24px}
+    .field{margin-bottom:14px}
+    .field label{display:block;font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px}
+    .field input,.field select{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:14px;font-family:inherit;outline:none;transition:border-color 0.2s;color:var(--text)}
+    .field input:focus,.field select:focus{border-color:var(--navy)}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .form-btn{width:100%;padding:15px;background:var(--navy);color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:800;cursor:pointer;margin-top:8px;font-family:inherit;transition:background 0.2s}
+    .form-btn:hover{background:var(--blue)}
+    .form-note{text-align:center;font-size:11px;color:var(--muted);margin-top:12px}
+
+    /* ── FOOTER ── */
+    footer{background:var(--dark);color:rgba(255,255,255,0.6);padding:60px 5% 32px}
+    .footer-inner{max-width:1200px;margin:0 auto}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08)}
+    .footer-brand .logo-text{font-size:20px}
+    .footer-desc{font-size:13px;line-height:1.7;margin-top:16px;max-width:260px}
+    .footer-phone-big{font-size:22px;font-weight:900;color:var(--gold);text-decoration:none;display:block;margin-top:16px}
+    .footer-col h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px}
+    .footer-col ul{list-style:none}
+    .footer-col li{margin-bottom:10px}
+    .footer-col a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:13px;transition:color 0.2s}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;font-size:12px}
+    .service-areas-footer{font-size:11px;color:rgba(255,255,255,0.3);margin-top:8px}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      .nav-links{display:none}
+      .why-grid,.lead-grid{grid-template-columns:1fr}
+      .why-img-wrap{display:none}
+      .process-grid{grid-template-columns:1fr 1fr;gap:24px}
+      .process-grid::before{display:none}
+      .inspection-grid{grid-template-columns:1fr 1fr}
+      .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+      .g1,.g2,.g3,.g4,.g5{grid-column:span 1;grid-row:span 1;height:200px}
+      .testi-grid{grid-template-columns:1fr}
+      .footer-top{grid-template-columns:1fr 1fr}
     }
-    .trust-item { font-weight: 800; color: var(--navy); font-size: 14px; }
-
-    /* SECTIONS */
-    section { padding: 70px 40px; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-label { color: var(--accent); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-    h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.15; margin-bottom: 16px; color: var(--navy); }
-    .subtitle { font-size: 17px; color: #555; line-height: 1.6; max-width: 600px; margin-bottom: 48px; }
-
-    /* WHY CHOOSE */
-    .why { background: var(--light); }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 28px;
-      border-left: 4px solid var(--accent);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-    .card-icon { font-size: 32px; margin-bottom: 14px; }
-    .card h3 { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
-    .card p { font-size: 14px; color: #666; line-height: 1.6; }
-
-    /* PROCESS */
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-top: 48px; }
-    .step { text-align: center; }
-    .step-num {
-      width: 56px; height: 56px;
-      background: var(--navy);
-      color: var(--accent);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; font-weight: 900;
-      margin: 0 auto 16px;
-    }
-    .step h3 { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
-    .step p { font-size: 14px; color: #666; line-height: 1.5; }
-
-    /* INSPECTION */
-    .inspection { background: var(--navy); color: white; }
-    .inspection h2 { color: white; }
-    .inspection .subtitle { color: rgba(255,255,255,0.7); }
-    .inspection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-    .inspection-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 20px;
-    }
-    .inspection-card h4 { color: var(--accent); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
-    .inspection-card ul { list-style: none; }
-    .inspection-card li { font-size: 13px; color: rgba(255,255,255,0.8); padding: 4px 0; padding-left: 16px; position: relative; }
-    .inspection-card li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
-
-    /* FORM */
-    .lead-form { background: var(--light); }
-    .form-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-    .form-box {
-      background: white;
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
-    }
-    .form-box h3 { font-size: 22px; font-weight: 900; color: var(--navy); margin-bottom: 6px; }
-    .form-box p { font-size: 14px; color: #666; margin-bottom: 24px; }
-    .form-field { margin-bottom: 16px; }
-    .form-field label { display: block; font-size: 12px; font-weight: 700; color: #555; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .form-field input, .form-field select {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1.5px solid #e0e0e0;
-      border-radius: 8px;
-      font-size: 15px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .form-field input:focus, .form-field select:focus { border-color: var(--navy); }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .submit-btn {
-      width: 100%;
-      padding: 15px;
-      background: var(--navy);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 800;
-      cursor: pointer;
-      margin-top: 8px;
-    }
-    .form-info h3 { font-size: 28px; font-weight: 900; color: var(--navy); margin-bottom: 20px; }
-    .promise { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
-    .promise-icon { font-size: 28px; flex-shrink: 0; }
-    .promise h4 { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
-    .promise p { font-size: 13px; color: #666; line-height: 1.5; }
-
-    /* FOOTER */
-    footer { background: var(--navy); color: white; padding: 40px; text-align: center; }
-    footer .logo { font-size: 22px; margin-bottom: 12px; display: block; }
-    footer p { opacity: 0.6; font-size: 13px; margin-top: 8px; }
-    .footer-phone { font-size: 28px; font-weight: 900; color: var(--accent); margin: 12px 0; display: block; text-decoration: none; }
-    .service-areas { opacity: 0.6; font-size: 12px; margin-top: 20px; }
-
-    /* GALLERY */
-    .gallery { background: white; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
-    .gallery-item { border-radius: 10px; overflow: hidden; aspect-ratio: 4/3; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-    .gallery-item:hover img { transform: scale(1.05); }
-
-    /* HERO BG IMAGE */
-    .hero { background-image: linear-gradient(135deg, rgba(10,22,40,0.92) 0%, rgba(26,58,107,0.88) 100%), url('https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?w=1600&q=80'); background-size: cover; background-position: center; }
-
-    /* STATS */
-    .stats { background: var(--navy); }
-    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-    .stat-num { font-size: 48px; font-weight: 900; color: var(--accent); line-height: 1; }
-    .stat-label { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 6px; }
-
-    @media (max-width: 768px) {
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      nav { padding: 14px 20px; }
-      .nav-cta { display: none; }
-      .hero { padding: 50px 20px 40px; }
-      section { padding: 50px 20px; }
-      .form-wrap { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .trust-bar { gap: 20px; padding: 12px 20px; }
+    @media(max-width:600px){
+      section{padding:60px 5%}
+      .hero-proof{gap:20px}
+      .trustbar-inner{gap:20px}
+      .footer-top{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">Assurance <span>Roofing</span></div>
-  <div style="display:flex;align-items:center">
-    <a href="tel:6824521687" class="nav-phone">📞 (682) 452-1687</a>
-    <a href="#inspection" class="nav-cta">Free Inspection</a>
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark">A</div>
+      <span class="logo-text">Assurance <span>Roofing</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#gallery">Our Work</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:6824521687" class="nav-phone">📞 (682) 452-1687</a>
+    </div>
+    <a href="#contact" class="nav-cta">Free Inspection</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <div class="rating-badge">⭐⭐⭐⭐⭐ 4.9 Google Rating · DFW's Trusted Roofing Experts</div>
-    <h1>Your Roof. Your Insurance.<br><span>We Fight For Both.</span></h1>
-    <p>DFW's storm damage specialists. We document the damage, handle the insurance company, and install the roof — the right way.</p>
-    <div class="hero-btns">
-      <a href="tel:6824521687" class="btn-primary">📞 Call (682) 452-1687</a>
-      <a href="#inspection" class="btn-secondary">Get Free Inspection</a>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">⭐ 4.9 Google Rating &nbsp;·&nbsp; DFW's Trusted Storm Roofing Experts</div>
+    <h1>Your Roof.<br>Your Insurance.<br><em>We Fight For Both.</em></h1>
+    <p class="hero-sub">Storm damage specialists serving Dallas-Fort Worth. We document the damage, fight your insurance company, and install a roof that lasts — the right way.</p>
+    <div class="hero-actions">
+      <a href="tel:6824521687" class="btn-gold">📞 Call (682) 452-1687</a>
+      <a href="#contact" class="btn-outline">Get Free Inspection →</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item"><span class="proof-num">4.9★</span><span class="proof-label">Google Rating</span></div>
+      <div class="proof-item"><span class="proof-num">100%</span><span class="proof-label">Free Inspections</span></div>
+      <div class="proof-item"><span class="proof-num">1 Day</span><span class="proof-label">Most Installs</span></div>
+      <div class="proof-item"><span class="proof-num">DFW</span><span class="proof-label">Local & Trusted</span></div>
     </div>
   </div>
 </section>
 
 <!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-item">✅ 100% Free Inspections</div>
-  <div class="trust-item">✅ Insurance Claim Experts</div>
-  <div class="trust-item">✅ No Money Out of Pocket*</div>
-  <div class="trust-item">✅ Licensed & Insured</div>
-  <div class="trust-item">✅ DFW Local Company</div>
+<div class="trustbar">
+  <div class="trustbar-inner">
+    <div class="trust-item">✅ 100% Free Roof Inspections</div>
+    <div class="trust-item">✅ Insurance Claim Specialists</div>
+    <div class="trust-item">✅ Licensed & Insured</div>
+    <div class="trust-item">✅ No Out-of-Pocket Costs*</div>
+    <div class="trust-item">✅ DFW Local Company</div>
+  </div>
 </div>
 
-<!-- STATS -->
-<section class="stats">
+<!-- SERVICES -->
+<section class="services" id="services">
   <div class="container">
-    <div class="stats-grid">
-      <div><div class="stat-num">4.9★</div><div class="stat-label">Google Rating</div></div>
-      <div><div class="stat-num">100%</div><div class="stat-label">Free Inspections</div></div>
-      <div><div class="stat-num">DFW</div><div class="stat-label">Local & Trusted</div></div>
-      <div><div class="stat-num">1 Day</div><div class="stat-label">Most Installs</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY CHOOSE -->
-<section class="why">
-  <div class="container">
-    <div class="section-label">Why Assurance</div>
-    <h2>Honest Roofing.<br>Real Inspections. No Guesswork.</h2>
-    <p class="subtitle">We're not like other roofing companies. We tell you the truth, fight for your claim, and stand behind every job.</p>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon">🔍</div>
-        <h3>Free Multi-Point Inspection</h3>
-        <p>No cost. No obligation. We inspect every component — not just shingles — and explain exactly what we find.</p>
+    <div class="eyebrow">What We Do</div>
+    <h2>Complete Roofing Solutions<br>for DFW Homeowners</h2>
+    <p class="lead">From storm damage to full replacement — we handle every step so you don't have to.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <img class="service-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Storm damage inspection" />
+        <div class="service-body">
+          <div class="service-icon">🌩️</div>
+          <h3>Storm Damage & Insurance Claims</h3>
+          <p>We inspect, document, and fight your insurance company to maximize your claim. Our adjuster meetings get results.</p>
+          <a href="#contact" class="service-link">Get Free Inspection →</a>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">🛡️</div>
-        <h3>Insurance Claim Advocates</h3>
-        <p>We go to bat with your insurance company, document every dollar of damage, and maximize your coverage.</p>
+      <div class="service-card">
+        <img class="service-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Roof replacement" />
+        <div class="service-body">
+          <div class="service-icon">🏠</div>
+          <h3>Full Roof Replacement</h3>
+          <p>Asphalt shingles or metal roofing — installed by trained crews using top-rated manufacturers. Most jobs done in one day.</p>
+          <a href="#contact" class="service-link">Get a Quote →</a>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">⚡</div>
-        <h3>Fast, Professional Install</h3>
-        <p>Most roofs completed in one day. Trained crews, quality materials, clean job site — every time.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📞</div>
-        <h3>Local Team You Can Reach</h3>
-        <p>We're based in DFW. We answer the phone and stand behind our work long after the job is done.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🏠</div>
-        <h3>Shingles & Metal Roofing</h3>
-        <p>We install both asphalt shingle and metal roofing systems using top-rated manufacturers.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">⭐</div>
-        <h3>4.9 Star Reputation</h3>
-        <p>Our reputation is on every roof we touch. Real reviews from real DFW homeowners.</p>
+      <div class="service-card">
+        <img class="service-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Roof inspection" />
+        <div class="service-body">
+          <div class="service-icon">🔍</div>
+          <h3>Free Roof Inspection</h3>
+          <p>No cost. No obligation. We inspect every component — decking, flashing, gutters, and more — and explain exactly what we find.</p>
+          <a href="#contact" class="service-link">Schedule Now →</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="gallery">
+<!-- WHY US -->
+<section id="why-us">
   <div class="container">
-    <div class="section-label">Our Work</div>
-    <h2>Recent Projects Across DFW</h2>
-    <p class="subtitle">From hail damage to full replacements — every job done right.</p>
-    <div class="gallery-grid">
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Roof installation" /></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Roofing crew" /></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Beautiful home" /></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Modern home" /></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="House exterior" /></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&q=80" alt="Roofing work" /></div>
+    <div class="why-grid">
+      <div class="why-img-wrap">
+        <img class="why-img" src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80" alt="Beautiful DFW home" />
+        <div class="why-badge">
+          <div class="why-badge-num">4.9★</div>
+          <div class="why-badge-text">Google Rating<br>DFW's Most Trusted</div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Why Choose Us</div>
+        <h2>Honest Roofing.<br>Real Results.</h2>
+        <p class="lead">We're not just another roofing company. We tell you the truth, fight for your claim, and stand behind every single job we do.</p>
+        <div class="why-points">
+          <div class="why-point">
+            <div class="why-check">🔍</div>
+            <div>
+              <h4>Multi-Point Inspection — Free</h4>
+              <p>We check structural components, shingles, gutters, flashing, and more. No other roofer goes this deep for free.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-check">🛡️</div>
+            <div>
+              <h4>Insurance Advocates</h4>
+              <p>We meet with your adjuster and make sure every dollar of damage gets documented. Most homeowners get more than they expected.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-check">⚡</div>
+            <div>
+              <h4>One-Day Installs</h4>
+              <p>Professional crews, quality materials, and a clean job site. We respect your time and your property.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-check">📞</div>
+            <div>
+              <h4>Local Team That Answers</h4>
+              <p>We're based in DFW. Call us and a real person picks up. We stand behind our work long after install day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section>
+<section class="process">
   <div class="container">
-    <div class="section-label">How It Works</div>
-    <h2>Simple. Stress-Free. Done Right.</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
+    <div class="eyebrow" style="color:var(--gold)">How It Works</div>
+    <h2>Simple. Stress-Free.<br>Done Right.</h2>
+    <p class="lead">From first call to final inspection — we handle everything so you can relax.</p>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-circle"><span>📞</span><span class="step-num-badge">1</span></div>
+        <h3>Call or Request</h3>
+        <p>Contact us for a free inspection. We respond within 24 hours.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-circle"><span>🔍</span><span class="step-num-badge">2</span></div>
         <h3>Free Inspection</h3>
-        <p>We inspect your roof thoroughly and document all damage — at no cost to you.</p>
+        <p>We inspect every inch and document all damage — at no cost to you.</p>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Insurance Filing</h3>
-        <p>We meet with your adjuster and fight to make sure every dollar of damage is covered.</p>
+      <div class="process-step">
+        <div class="step-circle"><span>🛡️</span><span class="step-num-badge">3</span></div>
+        <h3>Insurance Filed</h3>
+        <p>We meet your adjuster and fight to maximize your coverage.</p>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Approval</h3>
-        <p>Once approved, you sign with us and we handle everything from there.</p>
+      <div class="process-step">
+        <div class="step-circle"><span>✅</span><span class="step-num-badge">4</span></div>
+        <h3>Approved & Signed</h3>
+        <p>Claim approved, you sign with us, and we handle the rest.</p>
       </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>Install Day</h3>
-        <p>Our crew installs your new roof — usually in one day — and cleans up completely.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">5</div>
-        <h3>Final Inspection</h3>
-        <p>We walk through the job with you and make sure you're 100% satisfied before we leave.</p>
+      <div class="process-step">
+        <div class="step-circle"><span>🏠</span><span class="step-num-badge">5</span></div>
+        <h3>New Roof Installed</h3>
+        <p>Your new roof installed in one day. Clean site, quality guaranteed.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- INSPECTION -->
-<section class="inspection">
+<section>
   <div class="container">
-    <div class="section-label" style="color:var(--accent)">Our Inspection</div>
-    <h2>The Assurance Multi-Point Inspection</h2>
-    <p class="subtitle">We check every critical component — not just the shingles. Most roofers miss what we find.</p>
+    <div class="eyebrow">Our Inspection</div>
+    <h2>The Assurance Multi-Point<br>Inspection</h2>
+    <p class="lead">Most roofers check shingles. We check everything. Here's exactly what we inspect on every roof.</p>
     <div class="inspection-grid">
-      <div class="inspection-card">
-        <h4>Structural</h4>
-        <ul>
+      <div class="insp-card">
+        <h4>🏗️ Structural</h4>
+        <ul class="insp-list">
           <li>Roof Decking Condition</li>
           <li>Attic Ventilation</li>
-          <li>Underlayment</li>
+          <li>Roofing Underlayment</li>
           <li>Flashing Integrity</li>
           <li>Chimney Condition</li>
+          <li>Skylight Seals</li>
         </ul>
       </div>
-      <div class="inspection-card">
-        <h4>Shingles & Exterior</h4>
-        <ul>
-          <li>Shingle Damage</li>
+      <div class="insp-card">
+        <h4>🪟 Shingles & Exterior</h4>
+        <ul class="insp-list">
+          <li>Hail & Wind Damage</li>
           <li>Granule Loss</li>
-          <li>Moss & Algae</li>
-          <li>Nail Pops</li>
-          <li>Drip Edge Condition</li>
+          <li>Moss & Algae Growth</li>
+          <li>Nail Pops & Fasteners</li>
+          <li>Roof Edge & Drip Edge</li>
         </ul>
       </div>
-      <div class="inspection-card">
-        <h4>Gutters & Drainage</h4>
-        <ul>
-          <li>Gutter Condition</li>
-          <li>Downspouts & Flow</li>
+      <div class="insp-card">
+        <h4>🌧️ Gutters & Drainage</h4>
+        <ul class="insp-list">
+          <li>Gutter System Condition</li>
+          <li>Downspouts & Water Flow</li>
           <li>Soffit and Fascia</li>
+          <li>Drainage Patterns</li>
         </ul>
       </div>
-      <div class="inspection-card">
-        <h4>Leaks & Safety</h4>
-        <ul>
+      <div class="insp-card">
+        <h4>💧 Leaks & Safety</h4>
+        <ul class="insp-list">
           <li>Interior Ceiling & Walls</li>
           <li>Roof Penetrations</li>
-          <li>Storm Damage</li>
-          <li>Roof Lifespan Assessment</li>
+          <li>Storm Damage Assessment</li>
+          <li>Roof Lifespan Estimate</li>
+          <li>Warranty Review</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LEAD FORM -->
-<section class="lead-form" id="inspection">
+<!-- GALLERY -->
+<section style="background:var(--gray);padding-top:90px;padding-bottom:90px" id="gallery">
   <div class="container">
-    <div class="form-wrap">
-      <div class="form-info">
-        <div class="section-label">Get Started</div>
-        <h3>Get Your Free Roof Inspection Today</h3>
-        <br>
-        <div class="promise">
-          <div class="promise-icon">🆓</div>
-          <div>
-            <h4>100% Free — No Obligation</h4>
-            <p>No cost, no pressure. We inspect, explain what we see, and you decide.</p>
-          </div>
-        </div>
-        <div class="promise">
-          <div class="promise-icon">⚡</div>
-          <div>
-            <h4>Fast Response</h4>
-            <p>We'll reach out within 24 hours to schedule your inspection at your convenience.</p>
-          </div>
-        </div>
-        <div class="promise">
-          <div class="promise-icon">🛡️</div>
-          <div>
-            <h4>Insurance Specialists</h4>
-            <p>If there's damage, we handle the insurance company for you from start to finish.</p>
-          </div>
-        </div>
-        <div class="promise">
-          <div class="promise-icon">📞</div>
-          <div>
-            <h4>Prefer to Call?</h4>
-            <p><strong>(682) 452-1687</strong> — We answer.</p>
-          </div>
+    <div class="eyebrow">Our Work</div>
+    <h2>Recent Projects<br>Across DFW</h2>
+    <p class="lead">Every job done right. Here's a look at recent roofs we've installed across Dallas-Fort Worth.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item g1">
+        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80" alt="DFW home roof replacement" />
+        <div class="gallery-label">Full Replacement — Dallas, TX</div>
+      </div>
+      <div class="gallery-item g2">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="Roofing installation" />
+        <div class="gallery-label">Storm Damage — Plano, TX</div>
+      </div>
+      <div class="gallery-item g3">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=500&q=80" alt="Beautiful home" />
+        <div class="gallery-label">New Roof — Frisco, TX</div>
+      </div>
+      <div class="gallery-item g4">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&q=80" alt="Modern home" />
+        <div class="gallery-label">Hail Damage — Garland, TX</div>
+      </div>
+      <div class="gallery-item g5">
+        <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=500&q=80" alt="Suburban home" />
+        <div class="gallery-label">Metal Roof — Arlington, TX</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="eyebrow">Reviews</div>
+    <h2>What DFW Homeowners<br>Are Saying</h2>
+    <p class="lead">4.9 stars on Google. Here's what our customers say about working with us.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Assurance Roofing handled everything with my insurance company. I didn't have to do anything — they met the adjuster, got the claim approved, and had my roof done in one day. Incredible service."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">W</div>
+          <div><div class="testi-name">William M.</div><div class="testi-location">Dallas, TX</div></div>
         </div>
       </div>
-      <div class="form-box">
-        <h3>Schedule Free Inspection</h3>
-        <p>Fill out the form and we'll be in touch within 24 hours.</p>
-        <div class="form-row">
-          <div class="form-field">
-            <label>First Name</label>
-            <input type="text" placeholder="John" />
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"After the hail storm I didn't know what to do. Antoan came out the next day, inspected everything, and walked me through the whole process. My roof was replaced and I barely paid anything out of pocket."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">C</div>
+          <div><div class="testi-name">Cheryl P.</div><div class="testi-location">Fort Worth, TX</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Professional, honest, and fast. They found damage I didn't even know existed and helped me get it covered by insurance. The crew was clean and respectful. Highly recommend."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">E</div>
+          <div><div class="testi-name">Elizabeth I.</div><div class="testi-location">Plano, TX</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD FORM -->
+<section class="lead-section" id="contact">
+  <div class="container">
+    <div class="lead-grid">
+      <div class="lead-text">
+        <div class="eyebrow" style="color:var(--gold)">Get Started</div>
+        <h2>Get Your Free Roof<br>Inspection Today</h2>
+        <p class="lead">No cost. No pressure. We inspect your roof, explain everything we find, and help you understand your options — including insurance coverage.</p>
+        <div class="lead-promises">
+          <div class="lead-promise">100% Free — No obligation whatsoever</div>
+          <div class="lead-promise">Response within 24 hours</div>
+          <div class="lead-promise">Insurance claim specialists on every job</div>
+          <div class="lead-promise">Local DFW team — we actually answer the phone</div>
+        </div>
+        <div style="margin-top:36px">
+          <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px">Or call us directly</div>
+          <a href="tel:6824521687" style="font-size:32px;font-weight:900;color:var(--gold);text-decoration:none">(682) 452-1687</a>
+        </div>
+      </div>
+      <div>
+        <div class="form-card">
+          <h3>Request Free Inspection</h3>
+          <p>We'll reach out within 24 hours to schedule.</p>
+          <div class="field-row">
+            <div class="field"><label>First Name</label><input type="text" placeholder="John" /></div>
+            <div class="field"><label>Last Name</label><input type="text" placeholder="Smith" /></div>
           </div>
-          <div class="form-field">
-            <label>Last Name</label>
-            <input type="text" placeholder="Smith" />
+          <div class="field"><label>Phone Number</label><input type="tel" placeholder="(214) 555-0100" /></div>
+          <div class="field"><label>Email Address</label><input type="email" placeholder="john@email.com" /></div>
+          <div class="field"><label>Property Address</label><input type="text" placeholder="1234 Oak St, Dallas TX" /></div>
+          <div class="field">
+            <label>Recent Storm or Damage?</label>
+            <select>
+              <option>Yes — hail or wind damage</option>
+              <option>Not sure — want an inspection</option>
+              <option>No — looking for roof replacement</option>
+            </select>
           </div>
+          <button class="form-btn">Request Free Inspection →</button>
+          <p class="form-note">🔒 Your information is private. No spam ever.</p>
         </div>
-        <div class="form-field">
-          <label>Phone Number</label>
-          <input type="tel" placeholder="(214) 555-0100" />
-        </div>
-        <div class="form-field">
-          <label>Email Address</label>
-          <input type="email" placeholder="john@email.com" />
-        </div>
-        <div class="form-field">
-          <label>Property Address</label>
-          <input type="text" placeholder="1234 Oak Street, Dallas TX" />
-        </div>
-        <div class="form-field">
-          <label>Did you recently have a storm?</label>
-          <select>
-            <option>Yes — hail or wind damage</option>
-            <option>Not sure — want an inspection</option>
-            <option>No — looking for roof replacement</option>
-          </select>
-        </div>
-        <button class="submit-btn">Request Free Inspection →</button>
-        <p style="font-size:11px;color:#999;text-align:center;margin-top:12px">No spam. No pressure. We respect your privacy.</p>
       </div>
     </div>
   </div>
@@ -515,11 +533,50 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="logo">Assurance <span style="color:var(--accent)">Roofing</span> & Construction</span>
-  <a href="tel:6824521687" class="footer-phone">(682) 452-1687</a>
-  <p>DFW Roof Replacement & Storm Damage Specialists</p>
-  <p class="service-areas">Proudly serving Dallas · Fort Worth · Plano · Garland · Irving · Arlington · Frisco · McKinney and surrounding DFW communities</p>
-  <p style="margin-top:20px;opacity:0.4;font-size:11px">© 2026 Assurance Roofing & Construction. All rights reserved.</p>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><div class="logo-mark">A</div><span class="logo-text">Assurance <span>Roofing</span></span></div>
+        <p class="footer-desc">DFW's trusted storm damage and roof replacement specialists. We fight for homeowners — not insurance companies.</p>
+        <a href="tel:6824521687" class="footer-phone-big">(682) 452-1687</a>
+        <p class="service-areas-footer">Dallas · Fort Worth · Plano · Garland · Irving · Arlington · Frisco · McKinney · Denton · Rockwall</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Storm Damage</a></li>
+          <li><a href="#">Insurance Claims</a></li>
+          <li><a href="#">Roof Replacement</a></li>
+          <li><a href="#">Free Inspection</a></li>
+          <li><a href="#">Metal Roofing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Service Areas</h4>
+        <ul>
+          <li><a href="#">Dallas</a></li>
+          <li><a href="#">Fort Worth</a></li>
+          <li><a href="#">Plano</a></li>
+          <li><a href="#">Frisco</a></li>
+          <li><a href="#">Arlington</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Work</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="tel:6824521687">(682) 452-1687</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Assurance Roofing & Construction. All rights reserved.</span>
+      <span>⭐ 4.9 Google Rating · Licensed & Insured · DFW Texas</span>
+    </div>
+  </div>
 </footer>
 
 </body>
